@@ -1,5 +1,4 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.css';
 import "./Weather.css";
 
 
@@ -12,7 +11,7 @@ import "./Weather.css";
             <input type="text" placeholder="Enter city here" className="form-ctrl"/>
         </div>
         <div className = "col-3">
-            <input type="submit" value="Search" className="btn"/>
+            <input type="submit" value="Search" className="btn btn-primary"/>
         </div>
         </div>
     </form>
@@ -50,11 +49,35 @@ import "./Weather.css";
                         City
                     </h1>
                 </li>
-                <li> Day and date</li>
+                <li>
+                    <h2>Day and date</h2> </li>
             </ul>
         </div>
         <div className = "col-8">
-            Weather forecast
+            <h2>
+                Weather forecast
+            </h2>
+            
+            <div className= "row">
+                <div className = "col-2">
+                    Day 1
+                </div>
+                <div className = "col-2">
+                    Day 2
+                </div>
+                <div className = "col-2">
+                    Day 3
+                </div>
+                <div className = "col-2">
+                    Day 4
+                </div>
+                <div className = "col-2">
+                    Day 5
+                </div>
+                <div className = "col-2">
+                    Day 6
+                </div>
+            </div>
         </div>
     </div>
     </div>
