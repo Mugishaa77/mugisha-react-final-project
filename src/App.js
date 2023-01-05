@@ -6,8 +6,10 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
+        <h1>Mugisha's Weather App</h1>
+      
       <Weather />
-      <h2>Weather App</h2>
+      
       <footer>
         This project was coded by Mugisha and is {" "}
       <a href="https://github.com/Mugishaa77/mugisha-react-final-project"
