@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import DateComponent from "./DateComponent";
 import axios from "axios";
 import "./Weather.css";
 
 
- export default function Weather () {
+ export default function Weather (props) {
     const [ready, setReady] = useState (false);
     const [weatherData, setWeatherData]= useState ({});
 
     function handleResponse (response){
-        console.log(response.data)
+        
         setWeatherData ({
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
+      date: new Date (response.data.dt * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -67,7 +69,8 @@ import "./Weather.css";
                     </h1>
                 </li>
                 <li>
-                    <h2>Day and date</h2> </li>
+                    <h4>
+                        <DateComponent date={weatherData.date} /></h4> </li>
             </ul>
         </div>
         <div className = "col-8">
@@ -102,10 +105,9 @@ import "./Weather.css";
 
     } else {
     const apiKey = "be3f1b23a531fefa41599ea3eeb7401d";
-    let cityName = 'Nairobi';
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-console.log(reponse)
+
     return "Loading...";
     }
 
