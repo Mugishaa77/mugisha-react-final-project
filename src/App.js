@@ -1,9 +1,12 @@
 import React from "react";
+import Weather from "./Weather";
 import './App.css';
 
 export default function App() {
   return (
     <div className="App">
+      <div className="container">
+      <Weather />
       <h2>Weather App</h2>
       <footer>
         This project was coded by Mugisha and is {" "}
@@ -12,6 +15,7 @@ export default function App() {
       rel="noreferrer"> {" "}open-sourced on github</a>
       </footer>
       
+      </div>
     </div>
   );
 }
