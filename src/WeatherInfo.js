@@ -2,48 +2,38 @@ import React from "react";
 import DateComponent from "./DateComponent";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
-import WeatherForecast from "./WeatherForecast";
+
 
 export default function WeatherInfo (props) {
     return (<div className = "WeatherInfo">
-        <div className="row">
-        <div className = "col-4">
-            <ul>
-                <li>
-                    <WeatherIcon code={props.data.icon} size={52} />
-                </li>
-                <li>
-                    <WeatherTemperature celcius = {props.data.temperature} />
-                    
-                </li>
-                <li className="text-capitalize">
-                 {props.data.description}
-                </li>
-            </ul>
-        </div>
-        <div className = "col-4">
-            Wind: {Math.round(props.data.wind)} km/h
-        </div>
-        <div className = "col-4">
-            Humidity: {props.data.humidity}%
-        </div>
+          <div className="">
+            {props.data.city}
+          <DateComponent date={props.data.date} />
+          </div>
         
-    </div>
-    
-    <div className = "row">
-        <div className = "col-4">
-            <ul>
-                <li>
-                    <h1>
-                        {props.data.city}
-                    </h1>
-                </li>
-                <li>
-                    <h4>
-                        <DateComponent date={props.data.date} /></h4> </li>
-            </ul>
+        <div >
+            <WeatherIcon code={props.data.icon} size={52} />
+            {props.data.description}
         </div>
-    </div>
-    <WeatherForecast />
-    </div>);
+            
+        <div class="d-flex justify-content-evenly flex-row mb-3 ">
+            <div class="p-2"><WeatherTemperature celcius = {props.data.temperature} /></div>
+            <div class="p-2">Wind: {Math.round(props.data.wind)} km/h</div>
+            <div class="p-2"> Humidity: {props.data.humidity}%</div>
+        </div>
+                
+            
+                
+                
+         
+
+           
+                     
+                   
+                       
+                         
+           
+
+        
+        </div>);
 }

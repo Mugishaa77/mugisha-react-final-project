@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -12,6 +13,7 @@ import "./Weather.css";
     function handleResponse (response){
         
         setWeatherData ({
+          coord: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       date: new Date (response.data.dt * 1000),
@@ -48,17 +50,24 @@ import "./Weather.css";
         return (
   <div className = "Weather">
     <form onSubmit = {handleSubmit}>
+      <div className="d-flex align-items-start">
         <div className="row">
-            <div className="col-9">
+          <div className="col">
             <input type="text" placeholder="Enter city here" className="form-ctrl" autoFocus = "on"
             onChange = {handleCityChange}/>
         </div>
-        <div className = "col-3">
+        <div className="col">
             <input type="submit" value="Search" className="btn btn-primary"/>
         </div>
         </div>
+  
+            
+        </div>
+      
+        
     </form>
     <WeatherInfo data={weatherData} />   
+    <WeatherForecast coord={weatherData.coord} />
     </div>
     
   ); 
