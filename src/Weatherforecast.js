@@ -24,9 +24,14 @@ export default function WeatherForecast(props){
             </h2>
             
             <div className= "row">
-                <div className = "col">
-                    <WeatherForecastDay data={forecast[0]} />
+                {forecast.map(function (dailyForecast, index)  {
+                    return (
+                         <div className = "col">
+                    <WeatherForecastDay data={dailyForecast} />
                </div>
+                    );
+                })}
+               
             </div>
         </div>
     
