@@ -48,6 +48,7 @@ import "./Weather.css";
 
     if (ready) {
         return (
+          <div className="parent">
   <div className = "Weather">
     <form onSubmit = {handleSubmit}>
       <div className="d-flex align-items-start">
@@ -68,6 +69,7 @@ import "./Weather.css";
     </form>
     <WeatherInfo data={weatherData} />   
     <WeatherForecast coord={weatherData.coord} />
+    </div>
     </div>
     
   ); 
